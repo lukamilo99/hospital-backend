@@ -14,7 +14,6 @@ import raf.ui.hospital.service.SpecializationService;
 public class EmployeeController {
     private final EmployeeService employeeService;
     private final SpecializationService specializationService;
-
     private final DoctorMapper doctorMapper;
     public EmployeeController(EmployeeService employeeService, SpecializationService specializationService, DoctorMapper doctorMapper) {
         this.employeeService = employeeService;
@@ -28,7 +27,7 @@ public class EmployeeController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/doctor")
     public ResponseEntity<DoctorCreateDto> saveDoctor(@RequestBody DoctorCreateDto doctorDto){
         employeeService.saveEmployee(doctorMapper.doctorDtoToDoctor(doctorDto));
         return new ResponseEntity<>(HttpStatus.OK);

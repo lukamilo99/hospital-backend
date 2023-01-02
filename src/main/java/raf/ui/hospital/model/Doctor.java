@@ -17,6 +17,23 @@ public class Doctor extends Employee{
             joinColumns = @JoinColumn(name = "doctor_id"),
             inverseJoinColumns = @JoinColumn(name = "specialization_id")
     )
-    private List<Specialization> specializations;
+    private List<Specialization> specializationList;
+    @ManyToMany(mappedBy = "doctorList")
+    private List<Operation> operationList;
+    @OneToMany(mappedBy = "doctor")
+    private List<Prescription> prescriptionList;
+
+    @OneToMany(mappedBy = "doctor")
+    private List<Appointment> appointmentList;
+
+    @OneToMany(mappedBy = "doctor")
+    private List<PatientDoctor> personalPatientList;
+    @OneToMany(mappedBy = "releaseDoctor")
+    private List<HospitalStay> releaseList;
+    @OneToMany(mappedBy = "doctor")
+    private List<NightshiftDoctor> nightshiftList;
+
+    @OneToMany(mappedBy = "doctor")
+    private List<DoctorDepartment> departmentList;
 
 }

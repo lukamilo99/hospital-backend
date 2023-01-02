@@ -21,7 +21,7 @@ public class DoctorMapper {
         DoctorCreateDto doctorDto = new DoctorCreateDto();
         doctorDto.setFirstName(doctor.getFirstName());
         doctorDto.setLastName(doctor.getLastName());
-        doctorDto.setSpecializations(List.of((doctor.getSpecializations().get(doctor.getSpecializations().size() - 1)).getName()));
+        doctorDto.setSpecializations(List.of((doctor.getSpecializationList().get(doctor.getSpecializationList().size() - 1)).getName()));
         return doctorDto;
     }
 
@@ -36,7 +36,7 @@ public class DoctorMapper {
             specializations.add(specializationService.findSpecializationByName(spec).get());
         }
 
-        doctor.setSpecializations(specializations);
+        doctor.setSpecializationList(specializations);
         return doctor;
     }
 }

@@ -4,18 +4,21 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.List;
+import org.springframework.web.util.pattern.PathPattern;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Specialization {
+public class Prescription {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    @ManyToMany(mappedBy = "specializationList")
-    private List<Doctor> doctors;
+    @ManyToOne
+    private Patient patient;
+    @ManyToOne
+    private Doctor doctor;
+    @ManyToOne
+    private Medicine medicine;
 }

@@ -4,18 +4,24 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.util.List;
+
+import java.sql.Date;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Specialization {
+public class NightshiftNurse {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    @ManyToMany(mappedBy = "specializationList")
-    private List<Doctor> doctors;
+    @ManyToOne
+    private Nurse nurse;
+    @ManyToOne
+    private Block block;
+
+    private Date startDate;
+
+    private Date endDate;
 }

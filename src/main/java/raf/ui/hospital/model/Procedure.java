@@ -23,4 +23,6 @@ public class Procedure {
     private BigDecimal price;
     @OneToMany(mappedBy = "procedure")
     private List<ProcedureLicence> procedureLicences;
+    @OneToMany(mappedBy = "procedure")
+    private List<Operation> operationList;
 }
