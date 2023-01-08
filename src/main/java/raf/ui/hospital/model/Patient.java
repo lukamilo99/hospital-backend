@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -18,6 +19,9 @@ public class Patient {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    private boolean covid;
+    private Date covidFromDate;
+    private Date covidToDate;
     @OneToMany(mappedBy = "patient")
     private List<Diagnosis> diagnosisList;
     @OneToMany(mappedBy = "patient")

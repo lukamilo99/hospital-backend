@@ -17,11 +17,10 @@ public class Block {
     private Long id;
     @OneToMany(mappedBy = "block")
     private List<Room> roomList;
-
     @OneToMany(mappedBy = "block")
     private List<NightshiftNurse> nightshiftList;
-    @ManyToOne
-    private Department department;
+    @OneToMany(mappedBy = "block")
+    private List<Department> department;
 
     private String name;
 

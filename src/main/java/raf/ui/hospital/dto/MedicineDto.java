@@ -5,14 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class DoctorCreateDto {
-    private String firstName;
-    private String lastName;
-    private List<String> specializations;
+public class MedicineDto {
+    private String name;
+    private String type;
+    private String manufacturer;
+    private String size;
 }

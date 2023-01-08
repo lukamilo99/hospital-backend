@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.web.util.pattern.PathPattern;
 
+import java.sql.Date;
+
 @Entity
 @Getter
 @Setter
@@ -21,4 +23,7 @@ public class Prescription {
     private Doctor doctor;
     @ManyToOne
     private Medicine medicine;
+
+    private Date createDate;
+
 }

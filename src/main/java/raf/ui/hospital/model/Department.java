@@ -15,8 +15,8 @@ public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(mappedBy = "department")
-    private List<Block> blockList;
+    @ManyToOne
+    private Block block;
     @OneToMany(mappedBy = "department")
     private List<NightshiftDoctor> nightshiftList;
 
