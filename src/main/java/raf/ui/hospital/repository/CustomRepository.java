@@ -1,11 +1,13 @@
 package raf.ui.hospital.repository;
 
-import org.springframework.data.repository.Repository;
 import raf.ui.hospital.model.Medicine;
-
 import java.util.List;
-public interface CustomRepository extends Repository<Medicine, Long> {
+public interface CustomRepository {
 
-    List<Medicine> findByIllnessList(String param);
-    List<Medicine> findByName(String param);
+    List<Medicine> findMedicineByIllness(String param);
+    String findManufacturerByMedicineName(String param);
+    Long findCovidPatientsOnAntibioticsRatio();
+
+    Long findAllCovidPatients();
+
 }

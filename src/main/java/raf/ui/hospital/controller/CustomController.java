@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import raf.ui.hospital.dto.MedicineDto;
-import raf.ui.hospital.model.Medicine;
 import raf.ui.hospital.service.impl.CustomServiceImpl;
 
 import java.util.List;
@@ -22,7 +21,12 @@ public class CustomController {
     }
 
     @GetMapping ("/query2")
-    public ResponseEntity<List<MedicineDto>> query2(@RequestParam String param){
+    public ResponseEntity<String> query2(@RequestParam String param){
         return new ResponseEntity<>(customService.query2(param), HttpStatus.OK);
+    }
+
+    @GetMapping ("/query3")
+    public ResponseEntity<Long> query3(){
+        return new ResponseEntity<>(customService.query3(), HttpStatus.OK);
     }
 }
