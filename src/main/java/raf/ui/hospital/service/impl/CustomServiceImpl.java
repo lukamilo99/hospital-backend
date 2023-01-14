@@ -4,9 +4,13 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import raf.ui.hospital.dto.MedicineDto;
+import raf.ui.hospital.dto.ProcedureDto;
 import raf.ui.hospital.mapper.MedicineMapper;
+import raf.ui.hospital.mapper.ProcedureMapper;
 import raf.ui.hospital.repository.impl.CustomRepositoryImpl;
 import raf.ui.hospital.service.CustomService;
+
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,6 +20,7 @@ import java.util.stream.Collectors;
 public class CustomServiceImpl implements CustomService {
     private CustomRepositoryImpl customRepository;
     private MedicineMapper medicineMapper;
+    private ProcedureMapper procedureMapper;
 
     @Override
     public List<MedicineDto> query1(String illness) {
@@ -25,6 +30,26 @@ public class CustomServiceImpl implements CustomService {
     @Override
     public Long query3() {
         return customRepository.findCovidPatientsOnAntibioticsRatio();
+    }
+
+    @Override
+    public Double query7(String firstName, String lastName) {
+        return customRepository.findDoctorsWeeklyProcedureNumber(firstName, lastName);
+    }
+
+    @Override
+    public List<ProcedureDto> query6() {
+        return customRepository.findProceduresOrderByPrice().stream().map(procedureMapper::toDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public String query5() {
+        return customRepository.findDepartmentWithMostProcedures();
+    }
+
+    @Override
+    public List<String[]> query4() {
+        return customRepository.findNumberOfProceduresGroupBySpecialization();
     }
 
     @Override

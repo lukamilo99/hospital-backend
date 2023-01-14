@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -20,6 +21,7 @@ public abstract class Employee {
     private Long id;
     private String firstName;
     private String lastName;
+    private Date hireDate;
     @OneToMany(mappedBy = "employee")
     private List<Overtime> monthlyOvertime;
 

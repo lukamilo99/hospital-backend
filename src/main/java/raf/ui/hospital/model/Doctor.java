@@ -1,17 +1,21 @@
 package raf.ui.hospital.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Doctor extends Employee{
+    public Doctor(){
+        specializationList = new ArrayList<>();
+    }
     @ManyToMany
     @JoinTable(
             joinColumns = @JoinColumn(name = "doctor_id"),
@@ -34,4 +38,9 @@ public class Doctor extends Employee{
     private List<DoctorDepartment> departmentList;
     @OneToMany(mappedBy = "doctor")
     private List<ProcedureLicence> licenceList;
+
+    public void addSpecialization(Specialization specialization){
+
+        specializationList.add(specialization);
+    }
 }
