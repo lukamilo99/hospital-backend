@@ -1,19 +1,12 @@
 package raf.ui.hospital.mapper;
 
-import com.sun.source.tree.OpensTree;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import raf.ui.hospital.dto.doctorDto.CreateDoctorDto;
 import raf.ui.hospital.dto.doctorDto.PresentDoctorDto;
 import raf.ui.hospital.model.Doctor;
-import raf.ui.hospital.model.DoctorDepartment;
 import raf.ui.hospital.model.Specialization;
-import raf.ui.hospital.repository.DoctorRepository;
-import raf.ui.hospital.repository.SpecializationRepository;
-import raf.ui.hospital.service.DoctorService;
 import raf.ui.hospital.service.SpecializationService;
-
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Optional;

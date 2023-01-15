@@ -21,8 +21,8 @@ public class CustomRepositoryImpl implements CustomRepository {
     EntityManager entityManager;
 
     //Koji su najčešći lekovi koji se prepisuju pacijentu sa određenom dijagnozom.
-    //select name, manufacturer, count(medicine_id) total from prescription p join medicine m on (m.id = p.medicine_id) where medicine_id in
-    // (select medicine_id from illness_medicine_list im join illness i on (im.medicine_id = i.id) where i.name = 'Asthma') group by medicine_id order by total desc;
+    //select count(m.id) total, m.name from prescription p join illness_medicine_list im on (p.medicine_id = im.medicine_id) join illness i on (im.ilness_id = i.id) join medicine m on (p.medicine_id = m.id)
+    // where i.name = 'Asthma' group by m.name order by total desc;
 
     //Da se napravi analiza za “ime_leka” od kog proizvođača se najčešće prepisuje
     //select manufacturer, count(medicine_id) total from prescription p join medicine m on (p.medicine_id = m.id) where name = 'Xanax' group by manufacturer order by total desc limit 1;
@@ -44,12 +44,17 @@ public class CustomRepositoryImpl implements CustomRepository {
     //select truncate(datediff(sysdate(), hire_date) / 7, 0) from employee;
 
     @Override
-    public List<Medicine> findMedicineByIllness(String illness) {
-        String jpql = "SELECT p.medicine FROM Prescription p JOIN Medicine m ON (p.medicine.id = m.id) WHERE p.medicine.id IN (SELECT m.id FROM Medicine m JOIN m.illnessList il WHERE il.name = :illnessName) GROUP BY p.medicine.id";
-        TypedQuery<Medicine> query = entityManager.createQuery(jpql, Medicine.class);
-        query.setParameter("illnessName", illness);
+    public List<String[]> findMedicineByIllness(String illnessName) {
+        String jpql = "SELECT m.name, count(m.id) FROM Prescription p JOIN Medicine m ON (p.medicine.id = m.id) JOIN m.illnessList il JOIN Illness i ON (il.id = i.id) WHERE i.name =: illnessName GROUP BY m.name ORDER BY count(m.id) desc";
+        TypedQuery<Object[]> query = entityManager.createQuery(jpql, Object[].class);
+        query.setParameter("illnessName", illnessName);
+        List<String[]> resultList = new ArrayList<>();
 
-        return query.getResultList();
+        for(Object[] objList: query.getResultList()){
+            resultList.add(new String[]{objList[0].toString(), objList[1].toString()});
+        }
+
+        return resultList;
     }
 
     @Override

@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import raf.ui.hospital.dto.MedicineDto;
 import raf.ui.hospital.dto.ProcedureDto;
+import raf.ui.hospital.service.CustomService;
 import raf.ui.hospital.service.impl.CustomServiceImpl;
 
 import java.util.List;
@@ -14,10 +14,9 @@ import java.util.List;
 @RequestMapping("/custom")
 @AllArgsConstructor
 public class CustomController {
-    private final CustomServiceImpl customService;
-
+    private CustomService customService;
     @GetMapping ("/query1")
-    public ResponseEntity<List<MedicineDto>> query1(@RequestParam String param){
+    public ResponseEntity<List<String[]>> query1(@RequestParam String param){
         return new ResponseEntity<>(customService.query1(param), HttpStatus.OK);
     }
 

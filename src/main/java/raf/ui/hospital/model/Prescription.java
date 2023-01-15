@@ -23,7 +23,6 @@ public class Prescription {
     private Doctor doctor;
     @ManyToOne
     private Medicine medicine;
-
     private Date createDate;
 
 }

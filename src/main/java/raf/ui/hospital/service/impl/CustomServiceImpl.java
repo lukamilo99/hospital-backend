@@ -3,14 +3,12 @@ package raf.ui.hospital.service.impl;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import raf.ui.hospital.dto.MedicineDto;
 import raf.ui.hospital.dto.ProcedureDto;
 import raf.ui.hospital.mapper.MedicineMapper;
 import raf.ui.hospital.mapper.ProcedureMapper;
 import raf.ui.hospital.repository.impl.CustomRepositoryImpl;
 import raf.ui.hospital.service.CustomService;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,12 +17,11 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class CustomServiceImpl implements CustomService {
     private CustomRepositoryImpl customRepository;
-    private MedicineMapper medicineMapper;
     private ProcedureMapper procedureMapper;
 
     @Override
-    public List<MedicineDto> query1(String illness) {
-        return customRepository.findMedicineByIllness(illness).stream().map(medicineMapper::toDto).collect(Collectors.toList());
+    public List<String[]> query1(String illness) {
+        return customRepository.findMedicineByIllness(illness);
     }
 
     @Override

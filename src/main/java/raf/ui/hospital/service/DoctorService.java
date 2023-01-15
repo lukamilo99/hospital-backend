@@ -11,6 +11,7 @@ public interface DoctorService {
     void save(CreateDoctorDto doctorDto);
     void deleteDoctorById(Long id);
     PresentDoctorDto findDoctorById(Long id);
+    Optional<Doctor> findDoctorEntityById(Long id);
 
 
 

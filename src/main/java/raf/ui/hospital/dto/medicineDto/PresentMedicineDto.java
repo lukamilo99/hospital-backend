@@ -1,6 +1,5 @@
-package raf.ui.hospital.dto;
+package raf.ui.hospital.dto.medicineDto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class MedicineDto {
+public class PresentMedicineDto {
     private String name;
     private String type;
     private String manufacturer;

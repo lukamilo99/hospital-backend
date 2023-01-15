@@ -28,6 +28,11 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
+    public Optional<Doctor> findDoctorEntityById(Long id) {
+        return doctorRepository.findById(id);
+    }
+
+    @Override
     public PresentDoctorDto findDoctorById(Long id) {
         Optional<Doctor> doctor = doctorRepository.findById(id);
         if(doctor.isPresent()) return doctorMapper.toPresentDto(doctor.get());

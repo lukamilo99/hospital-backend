@@ -2,17 +2,19 @@ package raf.ui.hospital.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import raf.ui.hospital.repository.IllnessRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Medicine {
-
+    public Medicine(){
+        illnessList = new ArrayList<>();
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,4 +26,8 @@ public class Medicine {
     private List<Prescription> prescriptionList;
     @ManyToMany(mappedBy = "medicineList")
     private List<Illness> illnessList;
+
+    public void addIllness(Illness illness){
+        illnessList.add(illness);
+    }
 }

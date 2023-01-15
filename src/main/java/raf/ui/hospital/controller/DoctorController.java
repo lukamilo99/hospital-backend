@@ -26,7 +26,6 @@ public class DoctorController {
 
     @GetMapping("find/{id}")
     public ResponseEntity<PresentDoctorDto> findDoctor(@PathVariable Long id){
-        //doctorService.findDoctorById(id);
         return new ResponseEntity<>(doctorService.findDoctorById(id), HttpStatus.OK);
     }
 }
