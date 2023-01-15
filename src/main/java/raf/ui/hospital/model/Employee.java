@@ -22,6 +22,8 @@ public abstract class Employee {
     private String firstName;
     private String lastName;
     private Date hireDate;
+    private boolean isOnVacation;
+    private int vacationDays;
     @OneToMany(mappedBy = "employee")
     private List<Overtime> monthlyOvertime;
 

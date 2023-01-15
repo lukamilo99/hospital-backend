@@ -34,6 +34,7 @@ public class DoctorMapper {
         doctor.setFirstName(dto.getFirstName());
         doctor.setLastName(dto.getLastName());
         doctor.setHireDate(Date.valueOf(LocalDate.now()));
+        doctor.setOnVacation(false);
 
         return doctor;
     }
