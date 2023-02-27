@@ -15,16 +15,15 @@ import java.sql.Date;
 @Setter
 @NoArgsConstructor
 public class PatientDoctor {
+
     @EmbeddedId
     private PatientDoctorId id;
-
     @ManyToOne
     @MapsId("studentId")
     private Patient patient;
     @ManyToOne
     @MapsId("doctorId")
     private Doctor doctor;
-
     private Date fromDate;
     private Date toDate;
 

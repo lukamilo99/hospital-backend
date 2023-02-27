@@ -17,6 +17,5 @@ public class Room {
     @ManyToOne
     private Block block;
     private int capacity;
-
     private String roomNumber;
 }

@@ -20,8 +20,6 @@ public class NightshiftNurse {
     private Nurse nurse;
     @ManyToOne
     private Block block;
-
     private Date startDate;
-
     private Date endDate;
 }

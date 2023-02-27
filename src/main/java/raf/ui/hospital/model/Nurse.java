@@ -14,12 +14,12 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Nurse extends Employee {
+
     private boolean licence;
     @OneToMany(mappedBy = "nurse")
     private List<Appointment> appointmentList;
     @ManyToMany(mappedBy = "nurseList")
     private List<Operation> operationList;
-
     @OneToMany(mappedBy = "nurse")
     private List<NightshiftNurse> nightshiftList;
 }

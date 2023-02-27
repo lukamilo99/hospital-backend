@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Embeddable
 @Data
 public class PatientDoctorId implements Serializable {
+
     @Column(name = "patient_id")
     private Long patientId;
     @Column(name = "doctor_id")

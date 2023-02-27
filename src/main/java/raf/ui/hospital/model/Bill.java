@@ -23,8 +23,6 @@ public class Bill {
     @OneToOne
     @JoinColumn(name = "accountant_id", referencedColumnName = "id")
     private Accountant accountant;
-
     private BigDecimal price;
-
     private Date creationDate;
 }

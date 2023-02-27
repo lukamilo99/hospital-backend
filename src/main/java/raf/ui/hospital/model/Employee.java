@@ -26,7 +26,6 @@ public abstract class Employee {
     private int vacationDays;
     @OneToMany(mappedBy = "employee")
     private List<Overtime> monthlyOvertime;
-
     @OneToMany(mappedBy = "employee")
     private List<Vacation> yearlyVacation;
 

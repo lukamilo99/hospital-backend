@@ -23,9 +23,7 @@ public class HospitalStay {
     private Doctor releaseDoctor;
     @ManyToOne
     private Patient patient;
-
     private Date startDate;
-
     private Date endDate;
     @OneToOne(mappedBy = "hospitalStay")
     private Bill bill;

@@ -12,6 +12,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class Block {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,8 +22,6 @@ public class Block {
     private List<NightshiftNurse> nightshiftList;
     @OneToMany(mappedBy = "block")
     private List<Department> department;
-
     private String name;
-
     private String numberOfFloors;
 }

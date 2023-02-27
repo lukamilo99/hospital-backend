@@ -14,11 +14,8 @@ public class Overtime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private int workHours;
-
     private String month;
-
     private String year;
     @ManyToOne
     private Employee employee;

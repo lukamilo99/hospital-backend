@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Date;
 
@@ -22,7 +21,6 @@ public class Diagnosis {
     @ManyToOne
     private Illness illness;
     private Date createDate;
-
     private String description;
 
     @PrePersist

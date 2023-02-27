@@ -21,8 +21,6 @@ public class NightshiftDoctor {
     private Doctor doctor;
     @ManyToOne
     private Department department;
-
     private Date startDate;
-
     private Date endDate;
 }

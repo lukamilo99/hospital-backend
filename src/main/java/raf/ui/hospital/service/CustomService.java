@@ -1,7 +1,5 @@
 package raf.ui.hospital.service;
 
-import raf.ui.hospital.dto.ProcedureDto;
-
 import java.util.List;
 
 public interface CustomService {
@@ -11,6 +9,6 @@ public interface CustomService {
     Long query3();
     List<String[]> query4();
     String query5();
-    List<ProcedureDto> query6();
+    List<String> query6();
     Double query7(String firstName, String lastName);
 }

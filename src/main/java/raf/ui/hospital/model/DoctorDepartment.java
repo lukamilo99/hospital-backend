@@ -22,6 +22,5 @@ public class DoctorDepartment {
     @ManyToOne
     @MapsId("departmentId")
     private Department department;
-
     private boolean primaryDepartment;
 }
