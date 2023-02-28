@@ -2,7 +2,7 @@
 
 ## Description
 
-Created a database model based for given requirements, did object-relational mapping using Hibernate and searched it using the JPQL:
+Created a database model based on given requirements, did object-relational mapping using Hibernate and searched it using the JPQL:
 ```
 1. Find the most frequently prescribed medications for a given illness, and order them in descending order
 2. Find a manufacturer of the most prescribed medication with given name
